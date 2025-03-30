@@ -47,7 +47,6 @@ def grab(url):
     print(f"{link[start : end]}")
 
 print('#EXTM3U')
-print(banner)
 #s = requests.Session()
 with open('../youtube_channel_info.txt') as f:
     for line in f:
@@ -55,7 +54,7 @@ with open('../youtube_channel_info.txt') as f:
         if not line or line.startswith('~~'):
             continue
         if not line.startswith('https:'):
-            print(f'\n#EXTINF:-1, {ch_name}')
+            print(f'\n#EXTINF:-1')
         else:
             grab(line)
             
