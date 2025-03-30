@@ -6,6 +6,7 @@ def grab():
     response = requests.get('https://www.youtube.com/@euronewshu/live').text
     if '.m3u8' not in response:
         print('bad')
+        print(response)
     else:
         a=response.split('"')
         for line in a:
