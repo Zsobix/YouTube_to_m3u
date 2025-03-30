@@ -7,10 +7,6 @@ on:
   schedule:
     - cron: '0 0/3 * * *'
 
-  pull_request:
-    branches:
-      - main
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,8 +20,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5.5.0
       # Runs a single command using the runners shell
       #- name: Run a one-line script
       #  run: echo testing!
@@ -37,10 +33,7 @@ jobs:
           git config --global user.name "GitHub Action"
 
       - name: Main
-        run: |
-          pwd
-          chmod +x autorun.sh
-          ./autorun.sh
+        run: python scripts/youtube_m3ugrabber.py
 
       - name: git add
         run: |
