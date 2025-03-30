@@ -35,7 +35,7 @@ jobs:
           git config --global user.name "GitHub Action"
 
       - name: Main
-        run: python scripts/youtube_m3ugrabber.py
+        run: python scripts/youtube_m3ugrabber.py > youtube.m3u
 
       - name: git add
         run: |
