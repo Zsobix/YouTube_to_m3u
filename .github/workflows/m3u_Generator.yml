@@ -35,8 +35,6 @@ jobs:
           git config --global user.name "GitHub Action"
       - name: a
         run: echo '#EXTM3U' > youtube.m3u
-      - name: b
-        run: echo '#EXTINF:-1' >> youtube.m3u
       - name: Main
         run: yt-dlp -g 'https://www.youtube.com/@euronewshu/live' --cookies cookies.firefox-private.txt >> youtube.m3u
 
