@@ -23,28 +23,12 @@ if 'win' in sys.platform:
 def grab(url):
     response = requests.get(url, timeout=15).text
     if '.m3u8' not in response:
-        #response = requests.get(url).text
-        if '.m3u8' not in response:
-            if windows:
-                print('https://raw.githubusercontent.com/benmoose39/YouTube_to_m3u/main/assets/moose_na.m3u')
-                return
-            #os.system(f'wget {url} -O temp.txt')
-            os.system(f'curl "{url}" > temp.txt')
-            response = ''.join(open('temp.txt').readlines())
-            if '.m3u8' not in response:
-                print('https://raw.githubusercontent.com/benmoose39/YouTube_to_m3u/main/assets/moose_na.m3u')
-                return
-    end = response.find('.m3u8') + 5
-    tuner = 100
-    while True:
-        if 'https://' in response[end-tuner : end]:
-            link = response[end-tuner : end]
-            start = link.find('https://')
-            end = link.find('.m3u8') + 5
-            break
-        else:
-            tuner += 5
-    print(f"{link[start : end]}")
+        raise TypeError
+    else:
+        a=response.split('"')
+        for line in a:
+            if line.startswith("https://manifest.googlevideo.com/api/manifest/hls_variant/expire") and line.endswith("index.m3u8"):
+                print(line)
 
 print('#EXTM3U')
 #s = requests.Session()
