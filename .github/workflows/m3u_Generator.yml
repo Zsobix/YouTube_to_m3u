@@ -33,9 +33,12 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-
+      - name: a
+        run: echo '#EXTM3U' > youtube.m3u
+      - name: b
+        run: echo '#EXTINF:-1' >> youtube.m3u
       - name: Main
-        run: python scripts/youtube_m3ugrabber.py > youtube.m3u
+        run: yt-dlp -g 'https://www.youtube.com/@euronewshu/live' --cookies cookies.firefox-private.txt >> youtube.m3u
 
       - name: git add
         run: |
