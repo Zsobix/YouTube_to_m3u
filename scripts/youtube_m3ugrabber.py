@@ -55,8 +55,7 @@ with open('../youtube_channel_info.txt') as f:
         if not line or line.startswith('~~'):
             continue
         if not line.startswith('https:'):
-            line = line.split('|')
-            print(f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{tvg_logo}" tvg-id="{tvg_id}", {ch_name}')
+            print(f'\n#EXTINF:-1, {ch_name}')
         else:
             grab(line)
             
