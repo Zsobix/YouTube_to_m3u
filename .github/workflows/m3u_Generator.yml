@@ -23,9 +23,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: yt
         run: |
-          wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
-          mv yt-dlp_linux yt-dlp
+          wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
           chmod +x ./yt-dlp
+          ls
       # Runs a single command using the runners shell
       #- name: Run a one-line script
       #  run: echo testing!
