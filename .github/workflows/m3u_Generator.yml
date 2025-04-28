@@ -22,7 +22,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       - name: yt
-        uses: AnimMouse/setup-yt-dlp@v3
+        run: |
+          wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
+          mv yt-dlp_linux yt-dlp
       # Runs a single command using the runners shell
       #- name: Run a one-line script
       #  run: echo testing!
